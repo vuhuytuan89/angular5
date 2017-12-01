@@ -1,20 +1,16 @@
 import { Component } from "@angular/core";
-import { Http } from "@angular/http"
-import 'rxjs/add/operator/toPromise';
-
+import { IpService } from "./ip.service";
 @Component({
     selector: 'app-ip',
-    template: '<h3>My ip: {{ ip }} </h3>'
+    template: '<h3>My ip: {{ ip }} </h3>',
+    providers: [IpService]
 })
 
 export class IpComponent {
     ip:string;
-    constructor(private http: Http) {
-        this.http.get('https://httpbin.org/get')
-            .toPromise()
-            .then(res=>res.json())
-            //.then(resJson => console.log(resJson.url))
-            .then(resJson => this.ip = resJson.origin)
-            .catch(err => console.log(err));
+    constructor(private ipService:IpService) {
+        this.ipService.getIp()
+            .then(ip=> this.ip = ip)
+            .catch(err=> console.log(err))
     }
 }
