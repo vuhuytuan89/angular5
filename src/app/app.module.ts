@@ -14,7 +14,8 @@ import { StructComponent } from './Components/struct/struct.component';
 import { PersonComponent } from './components/person/person.component';
 import { ListPersionComponent } from './components/list-persion/list-persion.component';
 import { NgComponentComponent } from './components/ng-component/ng-component.component';
-import { PicesComponent } from './components/pices/pices.component'
+import { PicesComponent } from './components/pices/pices.component';
+import { RoundPipe } from './round.pipe'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PicesComponent } from './components/pices/pices.component'
       PersonComponent,
       ListPersionComponent,
       NgComponentComponent,
-      PicesComponent
+      PicesComponent,
+      RoundPipe
   ],
   imports: [
       BrowserModule,
