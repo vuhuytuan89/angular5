@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms'
-
+import { FormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HocsinhComponent } from './Components/Hocsinh/Hocsinh.component';
@@ -16,6 +16,7 @@ import { ListPersionComponent } from './components/list-persion/list-persion.com
 import { NgComponentComponent } from './components/ng-component/ng-component.component';
 import { PicesComponent } from './components/pices/pices.component';
 import { RoundPipe } from './round.pipe'
+import { IpComponent } from './ip.component'
 
 @NgModule({
   declarations: [
@@ -31,11 +32,13 @@ import { RoundPipe } from './round.pipe'
       ListPersionComponent,
       NgComponentComponent,
       PicesComponent,
-      RoundPipe
+      RoundPipe,
+      IpComponent
   ],
   imports: [
       BrowserModule,
-      FormsModule
+      FormsModule,
+      HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
