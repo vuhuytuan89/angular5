@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<p *ngIf="isShow">
+  struct works!
+</p>
+<button (click)="isShow = !isShow">Toggle</button>
+
+<hr>
+*ngFor
+<ul>
+  <li *ngFor="let subject of arrSubject">
+    <p>{{ subject }} </p>
+  </li>
+</ul>
+<hr>
+<select [(ngModel)]="filterStatus">
+  <option value="viewAll"> view All</option>
+  <option value="memoryIsTrue"> view memory = true</option>
+  <option value="memoryIsFalse"> view memory = false</option>
+</select>
+<div *ngFor="let word of arrWords">
+  <!--
+  <div  class="listword" *ngIf="(filterStatus === 'viewAll') || (filterStatus === 'memoryIsTrue' && word.memorized)  || (filterStatus === 'memoryIsFalse' && !word.memorized)">
+  -->
+  <div  class="listword" *ngIf="getShowStatus(word.memorized)">
+  <p [ngStyle]="{color: word.memorized ? 'green': 'red'}"  >{{ word.en }}</p>
+    <p>{{ word.vn }}</p>
+    <button (click)="remove(word.id)">remove</button>
+  </div>
+</div>
+
+<hr>
+<div class="form-group" *ngIf="isShow">
+  <input placeholder="English" [(ngModel)]="newEn" class="form-control" style="width: 100px">
+  <input placeholder="VietNam" [(ngModel)]="newVn" class="form-control" style="width: 100px">
+  <button (click)="addWord()" class="btn btn-default">Add new</button>
+</div>
+<div (click)="showForm()" *ngIf="!isShow" class="btn">add New</div>
+
+<br><br>
+
+</body>
+</html>

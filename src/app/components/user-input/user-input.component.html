@@ -1,0 +1,17 @@
+<input placeholder="Enter userName" (keyup)="showEvent($event)">
+<h3>Your name in <b class="bg-danger">{{ name }}</b></h3>
+
+<input placeholder="Enter userName 2" [(ngModel)] = "name2" #txtUsername>
+<h3 [style.color]="isHightLight ? 'red':'black'"
+    [style.fontSize]= "isHightLight ? '40px': '20px'"
+
+        >Your name in <b class="bg-danger">{{ name2 }}</b></h3>
+<code>{{ txtUsername.value | json }}</code>
+
+<div [class]="isHightLight ? 'circle' : 'square'"></div>
+
+// ngStyle
+
+<h3 [ngStyle] = "curentStyle">Your name in <b class="bg-danger">{{ name2 }}</b></h3>
+
+<div [ngClass]="{ circle: !isHightLight, square:isHightLight }"></div>
